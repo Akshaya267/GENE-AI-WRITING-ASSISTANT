@@ -1,0 +1,254 @@
+/* =====================================================================
+   GENE — Streamlit theme
+   Variables are re-declared per-run in app.py (dark/light) before this
+   file's rules are used, so everything below just references var(--x).
+   ===================================================================== */
+
+html, body, [data-testid="stAppViewContainer"]{
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+[data-testid="stHeader"]{ background: transparent !important; }
+.block-container{ padding-top: 1.6rem !important; max-width: 1200px; }
+
+/* ---------------------------------------------------------------- sidebar */
+[data-testid="stSidebar"]{
+  background: linear-gradient(180deg, var(--panel) 0%, var(--bg-2) 100%) !important;
+  border-right: 1px solid var(--border);
+}
+[data-testid="stSidebar"] .block-container{ padding-top: 1.2rem; }
+
+.gene-brand-card{
+  width:100%;
+  aspect-ratio: 3.4/1.5;
+  border-radius: 12px;
+  background: radial-gradient(120% 150% at 30% 20%, #16223f 0%, #070b16 80%);
+  border:1px solid var(--border-soft);
+  display:flex; align-items:center; justify-content:center;
+  margin-bottom: 14px;
+}
+.gene-brand-mark{ font-size: 40px; font-weight:800; letter-spacing:-1px; color: var(--text); }
+
+.gene-title{ font-size:24px; font-weight:800; text-align:center; letter-spacing:0.4px; margin:0; }
+.gene-subtitle{ font-size:12.5px; color:var(--text-dim); text-align:center; margin:2px 0 18px; }
+
+.gene-settings-heading{
+  font-size:11px; letter-spacing:1.2px; color:var(--blue); font-weight:700;
+  margin: 6px 0 10px;
+}
+
+/* sidebar native widgets */
+[data-testid="stSidebar"] label{ color:var(--text-dim) !important; font-size:12.5px !important; }
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p{ color:var(--text-dim); }
+
+[data-testid="stSidebar"] .stSelectbox div[data-baseweb="select"] > div,
+[data-testid="stSidebar"] .stTextInput input{
+  background: var(--bg-2) !important;
+  border:1px solid var(--border) !important;
+  color: var(--text) !important;
+  border-radius: 8px !important;
+  font-size: 12.5px !important;
+}
+
+/* sliders */
+[data-testid="stSidebar"] [data-testid="stSlider"] [data-baseweb="slider"] div[role="slider"]{
+  background-color:#fff !important;
+  border: 3px solid var(--blue) !important;
+}
+[data-testid="stSidebar"] [data-testid="stSlider"] div[data-testid="stTickBar"]{ display:none; }
+[data-testid="stSidebar"] [data-baseweb="slider"] > div > div{
+  background: var(--border) !important;
+}
+[data-testid="stSidebar"] [data-baseweb="slider"] > div > div > div{
+  background: var(--blue) !important;
+}
+
+/* checkbox */
+[data-testid="stSidebar"] [data-testid="stCheckbox"] label span{
+  border-color: var(--border) !important;
+}
+
+/* number input (Number of Outputs) */
+[data-testid="stSidebar"] [data-testid="stNumberInput"] input{
+  background: var(--bg-2) !important;
+  color: var(--text) !important;
+  border:1px solid var(--border) !important;
+}
+
+/* sidebar nav buttons */
+[data-testid="stSidebar"] .stButton > button{
+  width:100%;
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  text-align:left;
+  font-size:13.5px;
+  padding: 10px 12px;
+  border-radius: 9px;
+  justify-content:flex-start;
+}
+[data-testid="stSidebar"] .stButton > button:hover{
+  background: var(--border-soft);
+  color: var(--text);
+  border: none;
+}
+[data-testid="stSidebar"] .stButton > button:focus:not(:active){
+  box-shadow:none;
+}
+
+.sidebar-footer{
+  font-size:11px; color:var(--text-faint); text-align:center; margin-top:18px;
+}
+
+/* ---------------------------------------------------------------- topbar */
+.gene-topbar{
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom: 18px;
+}
+.gene-topbar-brand{ display:flex; align-items:center; gap:12px; }
+.gene-topbar-mark{
+  width:46px; height:46px; border-radius:12px;
+  background: radial-gradient(120% 150% at 30% 20%, #16223f 0%, #070b16 80%);
+  border:1px solid var(--border-soft);
+  display:flex; align-items:center; justify-content:center;
+  font-weight:800; font-size:18px;
+}
+.gene-topbar-title{ font-size:22px; font-weight:800; letter-spacing:0.3px; margin:0; }
+.gene-topbar-subtitle{ font-size:13px; color:var(--text-dim); margin:0; }
+
+/* dark mode toggle button (rendered as a normal streamlit button, styled) */
+div[data-testid="column"] .stButton > button.gene-toggle-btn{
+  border-radius: 20px !important;
+}
+
+/* ---------------------------------------------------------------- stat cards */
+.gene-stats-row{
+  display:grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+}
+.gene-stat-card{
+  background: var(--panel-2);
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  padding: 14px 14px 16px;
+  min-width:0;
+}
+.gene-stat-head{
+  display:flex; align-items:center; gap:6px;
+  font-size:10.5px; letter-spacing:0.8px; color:var(--text-dim);
+  font-weight:600; margin-bottom:10px; white-space:nowrap;
+}
+.gene-stat-dot{
+  width:8px; height:8px; border-radius:50%;
+  background: var(--accent); box-shadow: 0 0 8px var(--accent); flex-shrink:0;
+}
+.gene-stat-value{ font-size:22px; font-weight:800; color:var(--accent); line-height:1.1; }
+.gene-stat-value-sm{ font-size:15px; word-break:break-word; }
+
+@media (max-width: 1100px){
+  .gene-stats-row{ grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ---------------------------------------------------------------- chat panel */
+.gene-chat-panel{
+  background: var(--panel);
+  border: 1px solid var(--border-soft);
+  border-radius: 14px;
+  padding: 22px 24px;
+  margin-bottom: 16px;
+}
+.gene-empty{
+  text-align:center; color:var(--text-faint); padding: 50px 0;
+}
+.gene-empty .mark{ font-size:40px; opacity:0.5; margin-bottom:10px; }
+
+.gene-msg-row{ display:flex; gap:14px; align-items:flex-start; margin-bottom:20px; }
+.gene-avatar{
+  width:36px; height:36px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center; flex-shrink:0;
+  font-size:14px; font-weight:800;
+}
+.gene-avatar.user{ background: linear-gradient(135deg, var(--blue), #3a63d6); color:#fff; }
+.gene-avatar.bot{
+  background: radial-gradient(120% 150% at 30% 20%, #16223f 0%, #070b16 80%);
+  border:1px solid var(--border-soft); color:var(--text);
+}
+.gene-bubble{
+  border-radius:14px; padding:14px 18px; flex:1;
+}
+.gene-bubble.user{
+  background: linear-gradient(135deg, rgba(91,140,255,0.20), rgba(91,140,255,0.08));
+  border:1px solid rgba(91,140,255,0.30);
+}
+.gene-bubble.bot{
+  background: var(--panel-2);
+  border:1px solid var(--border-soft);
+}
+.gene-bubble-head{
+  display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;
+}
+.gene-bubble-name{ font-size:12.5px; font-weight:700; color: var(--blue); }
+.gene-bubble.bot .gene-bubble-name{ color: var(--purple); }
+.gene-bubble-time{ font-size:11px; color:var(--text-faint); }
+.gene-bubble-text{ font-size:14px; line-height:1.65; color:var(--text); white-space:pre-wrap; }
+
+.gene-badge{
+  display:inline-block; padding:3px 10px; border-radius:20px;
+  background: rgba(91,140,255,0.15); color: var(--blue);
+  font-size:11px; font-weight:700; letter-spacing:0.3px;
+}
+
+/* code block (used for bot output -> gives free built-in copy button) */
+.gene-bubble .stCodeBlock, .gene-bubble [data-testid="stCode"]{
+  margin-top: 4px;
+}
+
+/* action row buttons under a bot message */
+.gene-actions .stButton > button{
+  background: var(--bg-2) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-dim) !important;
+  font-size: 12px !important;
+  padding: 6px 13px !important;
+  border-radius: 8px !important;
+}
+.gene-actions .stButton > button:hover{
+  color: var(--blue) !important;
+  border-color: var(--blue) !important;
+}
+.gene-actions .stDownloadButton > button{
+  background: var(--bg-2) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-dim) !important;
+  font-size: 12px !important;
+  padding: 6px 13px !important;
+  border-radius: 8px !important;
+}
+
+/* ---------------------------------------------------------------- composer */
+.gene-composer-label{ font-size:12px; color:var(--text-dim); margin-bottom:6px; }
+[data-testid="stTextArea"] textarea{
+  background: var(--panel) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+  border-radius: 14px !important;
+  font-size: 14px !important;
+}
+.gene-primary-btn .stButton > button{
+  background: linear-gradient(135deg, var(--blue), #3a63d6) !important;
+  border: none !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  border-radius: 14px !important;
+  padding: 12px 22px !important;
+  box-shadow: 0 6px 18px rgba(91,140,255,0.35);
+}
+
+.gene-disclaimer{
+  text-align:center; font-size:11.5px; color:var(--text-faint); margin-top:8px;
+}
+
+hr{ border-color: var(--border-soft) !important; }
